@@ -1,0 +1,2 @@
+20210218_0954: Just got done moving to Github.  Attempted to freshly clone the uploaded project to the local desktop, and open it with Godot.  Everything appears to be working as it was before the move to Github, so it seems like a success so far.
+
