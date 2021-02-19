@@ -1,0 +1,15 @@
+20210218_0904:  More breakthroughs yesterday thanks to Godot community help.  Now I have to sit back and figure out what the next steps are.
+
+RECOLLECTION OF GOAL: Create a basic top-down hack-n-slash, with mechanics in the spirit of Diablo/Hotline Miami.
+
+COMPONENTS CREATED: 
+
+-Character rotates to face mouse
+-Attack animation created
+
+COMPONENTS STILL NEEDED
+
+-Enemy characters
+-Enemy attack 
+-enemy attack effects
+-player attack effects

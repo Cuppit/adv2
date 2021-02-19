@@ -1,0 +1,6 @@
+WEAPON ATTACK PROCEDURE
+
+-spawn weapon object
+-transform such that it's tail-end touches the edge of the player sprite (from a design perspective, we'll constrain the player sprite to be always a certain size for now)
+-Rotate the weapon based on the position of the mouse cursor
+-perform swing animation (could be tricky using the animation node if the animation depends on position

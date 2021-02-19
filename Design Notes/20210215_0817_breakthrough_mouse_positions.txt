@@ -1,0 +1,1 @@
+20210215_0857:  An infuriating hurdle, regarding the context dependency of mouse pointer coordinate calculations, has appeared to have been cleared for now.  In Godot, it's important to specify whether you need a *local* (using get_local_mouse_position()) or a *global* (using get_global_mouse_position()) position for your mouse.
