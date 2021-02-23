@@ -1,0 +1,13 @@
+20210222_1435
+
+Designing an enemy is now the purpose of this day.
+
+TODO
+	-Define weapon connecting with enemy action 
+
+WHAT HAPPENS WHEN THE WEAPON CONNECTS WITH THE ENEMY?
+	-Enemy runs hit-by-weapon logic
+	WHAT IS THE MOST COMMON HIT-BY-WEAPON LOGIC?
+		-sustain weapon damage
+		-perform "knockback_by_hit" movement
+		-
