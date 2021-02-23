@@ -4,6 +4,8 @@ export var speed = 400
 
 var screen_size
 
+
+
 signal labellable
 
 # cache weapon for fast access
@@ -20,32 +22,27 @@ func _physics_process(delta):
 	
 		
 	# Rotation based on mouse position
-	#var xvect = position.x - get_global_mouse_position().x
-	#var yvect = position.y - get_global_mouse_position().y
-	
-	#rotation = atan(yvect/xvect)
-	rotate(get_angle_to(get_global_mouse_position()))
-	#var rotspeed : = 12.0
-	#var target_angle : = get_angle_to(get_global_mouse_position())
-	#var rotation_amount : = min(abs(target_angle), rotspeed * delta) * sign(target_angle)
-	#rotate(rotation_amount)
-	#rotation = acos( xvect / sqrt(pow(xvect,2) + pow(yvect,2)) )
-	
+
+
+
 	
 	
 	# Moving
 	var velocity = Vector2()
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("ui_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("ui_up"):
-		velocity.y -= 1
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-	
+	if (curr_weapon == null):
+		rotate(get_angle_to(get_global_mouse_position()) - PI/2)
+		if Input.is_action_pressed("ui_right"):
+			velocity.x += 1
+		if Input.is_action_pressed("ui_left"):
+			velocity.x -= 1
+		if Input.is_action_pressed("ui_down"):
+			velocity.y += 1
+		if Input.is_action_pressed("ui_up"):
+			velocity.y -= 1
+		if velocity.length() > 0:
+			velocity = velocity.normalized() * speed
+		
+			
 	move_and_slide(velocity, Vector2.UP)
 	
 	# Attacking
@@ -59,7 +56,7 @@ func _physics_process(delta):
 			curr_weapon.position = $PlayerPosition.position
 			#curr_weapon.position.x += 50
 			curr_weapon.position.y += 50
-			
+			curr_weapon.z_index = z_index+1
 			var weap_angle = $PlayerPosition.get_angle_to(get_global_mouse_position()) - PI/2
 			$WeaponAnchor.rotation = weap_angle
 			
