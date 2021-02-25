@@ -1,0 +1,28 @@
+20210224_1722:
+LAST TIME:
+	-shoe-horned in a basic enemy response to being hit (e.g. dying)
+
+THIS TIME: 
+	-need to create behavior such that a sample enemy has a sort of behavior
+	-enemy needs way to threaten/destroy player character
+
+
+TO RESEARCH
+	-inheritance in Godot (generalizing all characters as based on some class, e.g.
+	 both players and enemies are sub-classes of the more general CHARACTER)
+
+***DESIGN CONCEPT: ENEMY BEHAVIOR***
+Every cycle, an enemy runs a function called "behavior".  This function determines what, 
+if anything, an enemy is doing or attempting to do (e.g. patrol logic)
+
+AGGRO ZONE
+
+
+***USE CASE SCENARIO***
+
+Player encounters enemy in the screen.  The player moves within a certain distance of the enemy, that until that point was moving back and forth in random directions.  ..
+
+...
+
+too many distractions.  Managed to get basic timer based movement initiation.  The problem with them all being initialized at the same time is the random number generator seems to have the same output giving all of them the same behavior.  Gotta regain focus some other way.
+	

@@ -22,9 +22,6 @@ func _physics_process(delta):
 	
 		
 	# Rotation based on mouse position
-
-
-
 	
 	
 	# Moving

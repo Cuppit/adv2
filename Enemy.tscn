@@ -34,3 +34,11 @@ margin_bottom = -26.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PatrolMoveTimer" type="Timer" parent="."]
+
+[node name="PatrolIdleTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+[connection signal="timeout" from="PatrolMoveTimer" to="." method="_on_PatrolMoveTimer_timeout"]
+[connection signal="timeout" from="PatrolIdleTimer" to="." method="_on_PatrolIdleTimer_timeout"]
