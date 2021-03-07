@@ -1,0 +1,107 @@
+20210307_1358: Baby Steps
+
+A copypaste from yesterday to get bearings:
+
+-----------------------
+BEHAVIOR DRAFT:  
+	-Check if player is in aggro radius
+		if yes, continually move towards player
+		if no, -wander in random directions
+
+CHECKING IF PLAYER IS IN AGGRO RADIUS
+	-Create area2d to represent "aggro radius"
+	-Emit a signal in response to a player character entering the radius
+	-"acquire" the player as a "target"
+		-Continually move towards the player character until the player character leaves the radius
+
+	-when a player character LEAVES the radius...
+		-...if that player character was the current target...
+		-...set a timer for "stop chasing".
+			-Once the "stop chasing" timer expires, resume normal patrol patterns.
+
+
+Work is cut out, tim efor a break.
+-----------------------
+
+What was accomplished from last time was the following:
+	-Create Area2D to represent "aggro radius".
+	-Created simple behavior where enemy follows player character
+	 in response to entering the radius
+		-This was acquired through another custom variable for enemies: "Target".
+		 the player character becomes the set "target" for the enemy and it...
+		 ...well the code is self-explanatory.  I hope.
+
+What still needs accomplishing:
+	-Enemy needs to follow a plan for STOPPING following of player character if player
+	 character remains out of aggro radius for a set amount of time.
+	-scenario plan needs to be drafted to better know what components are missing
+	 	-Some components off the top of the head:
+			-Character sheet (players, enemies, and NPCs)
+			-enemy/player responses to taking a hit
+			-enemy attack methods (design and programming)
+				
+What will be accomplished:
+	-Enemy/player responses to taking a hit will be designed and implemented
+
+	QUICK DESIGN NOTES: RESPONSE TO TAKING A HIT
+		Every attack has these basic properties:
+			-damage: how much hp is reduced from the target after sustaining the hit 
+			-knockback: How far the target is "shunted" as a result of sustaining the hit 
+			-flinch/no flinch: whether it causes the target to "flinch" (interrupts actions
+			 currently taking place, and "soft-stuns" the target for a brief period, say, 0.25 seconds)
+
+		HOW TO MANAGE ATTACK DETAILS
+			-An attack is like a "transaction" on the "account" that is a character sheet.
+			 therefore, an attack has the following properties:
+				-Attacker (The character or entity that performed the attack)
+				-Target (the subject that is sustaining the attack)
+				-function: calc_Damage
+					
+				-function: calc_Knockback
+				-function: calc_Flinch
+
+			CONTAIN DETAILS INSIDE A SPECIAL "ATTACK" NODE?
+				Attack details:
+					-are a function of the attacking character and the weapon used?
+
+LET'S CREATE A STEP-BY-STEP PROCESS OF AN ATTACK:
+
+CASE A: PLAYER USES A REGULAR ATTACK THAT HITS AN ENEMY
+	-Player presses button to initiate attack
+	-Attack animation is initiated
+	-The weapon object connects with an enemy object
+		Q: WHAT IS THE OUTCOME OF AN ATTACK
+			usually:
+				-enemy sustains damage
+				-enemy performs knockback
+				-enemy "flinches"
+		Q: WHO OR WHAT HANDLES THE LOGIC FOR CREATING THE RESULT OF AN ATTACK?
+		A: -the *WEAPON* object calculates what attack is being "THROWN AT" a target.
+		   -the *TARGET* object sustains effects BASED ON THE CONTENTS of this attack.  
+			-Weapon "sends" an "attack" to the attacked entity based on it's own stats.
+				-Note: "it's own stats" results may be modified by it's owning player, 
+				        if applicable (for example, a "bomb" doesn't have an owner,
+ 					and simply performs an attack on everything it touches)
+
+			
+Q: WHAT DO YOU GAIN WITH THIS LEVEL OF "ATTACK" ABSTRACTION?
+A: The way I see it, there are two ways to approach this: every enemy gets some function 
+   programmed by hand wherein they respond to specific types of attack, OR you generalize
+   in this way.  There is more processing overhead in this abstract method, as well as 
+   work design-wise upfront.  But, you gain flexibility and a lack of dependence on
+   structure, minimizing dev time.  The other way may be decent for performance, but  
+   this way increases possibilities and reduces long-term effort.
+
+   Another benefit of this system is you can keep a running record of all attacks that
+   occured in case that information becomes useful down the road.  For example, perhaps
+   a scenario event will only trigger when a character sustains a certain amount of 
+   attacks that meet some criteria (attacked by this character that used this spell, etc.)
+
+   We can abstract even further.  We're going to abstract this into "EFFECT."  Now events
+   like "drinking a healing potion" are covered.
+
+   20210307_1724: There is a lot of nuance and problems with logistics arising from this scope creep.
+   it may be time to go back to the drawing board and start from scratch.
+
+  
+  

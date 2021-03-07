@@ -3,6 +3,8 @@ extends Area2D
 onready var Player = $Player
 onready var Enemy = $Enemy
 
+var Weapon = preload("res://Effect.tscn")
+
  # TODO WARNING: This assumes weapon is ALWAYS a child of WeaponAnchor!
 var weapon_owner
 # Declare member variables here. Examples:

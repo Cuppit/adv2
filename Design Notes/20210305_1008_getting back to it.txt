@@ -1,0 +1,25 @@
+20210305_1008: getting back to it
+
+Different pressures required more immediate attention, so now here we go.
+
+Last time we left off we wanted to design a simple behavior for an enemy.  
+
+BEHAVIOR DRAFT:  
+	-Check if player is in aggro radius
+		if yes, continually move towards player
+		if no, -wander in random directions
+
+CHECKING IF PLAYER IS IN AGGRO RADIUS
+	-Create area2d to represent "aggro radius"
+	-Emit a signal in response to a player character entering the radius
+	-"acquire" the player as a "target"
+		-Continually move towards the player character until the player character leaves the radius
+
+	-when a player character LEAVES the radius...
+		-...if that player character was the current target...
+		-...set a timer for "stop chasing".
+			-Once the "stop chasing" timer expires, resume normal patrol patterns.
+
+
+Work is cut out, tim efor a break.
+	
