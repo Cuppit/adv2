@@ -67,6 +67,7 @@ func process_effect(effect):
 	
 	pass
 
+
 func _on_PatrolMoveTimer_timeout():
 	$PatrolMoveTimer.stop()
 	$PatrolIdleTimer.start(2)
