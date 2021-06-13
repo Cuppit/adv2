@@ -88,9 +88,8 @@ func _on_PatrolIdleTimer_timeout():
 
 func follow_target():
 		if (target != null):
-			var direction = target.position - position
-			direction = direction.normalized()
-			velocity += direction * speed
+			
+			velocity = (target.position - position).normalized() * speed
 
 func _on_AggroRadius_body_entered(body):
 

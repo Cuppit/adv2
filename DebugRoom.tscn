@@ -80,18 +80,3 @@ position = Vector2( 235.201, 377.169 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 540.326, 314.66 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 567.873, 182.227 )
-
-[node name="Enemy4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 335.85, 271.222 )
-
-[node name="Enemy5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 184.347, 236.26 )
-
-[node name="Enemy6" parent="." instance=ExtResource( 5 )]
-position = Vector2( 428.023, 105.946 )
-
-[node name="Enemy7" parent="." instance=ExtResource( 5 )]
-position = Vector2( 408.953, 197.06 )

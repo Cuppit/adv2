@@ -1,0 +1,14 @@
+20210613_1642:
+
+MAJOR ROADBLOCK overcome
+
+So it turned out getting one object to move towards a certain position was painfully simple compared to how I was trying to do it.  Now enemies no longer orbit around the player character.  Instead, they move directly towards the player character.  Some obvious components to work on:
+
+-Enemy behavior once within range of the player (e.g. stop moving and attacking once within range)
+
+-Enemy "giving up the chase" once aggroed
+
+-BONUS: Enemy "line-of-sight" (may require player "line-of-sight" for max realism) which feeds into:
+
+-BONUS: Enemy pathing (mastering implementation of A* search algorithm, ability to check for walls, etc.)
+
